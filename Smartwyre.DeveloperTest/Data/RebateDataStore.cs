@@ -2,7 +2,13 @@
 
 namespace Smartwyre.DeveloperTest.Data;
 
-public class RebateDataStore
+public interface IRebateDataStore
+{
+    Rebate GetRebate(string rebateIdentifier);
+    void StoreCalculationResult(Rebate account, decimal rebateAmount);
+}
+
+public class RebateDataStore: IRebateDataStore
 {
     public Rebate GetRebate(string rebateIdentifier)
     {
@@ -15,3 +21,6 @@ public class RebateDataStore
         // Update account in database, code removed for brevity
     }
 }
+
+
+
